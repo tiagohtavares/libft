@@ -6,7 +6,7 @@
 #    By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 11:13:01 by ttavares          #+#    #+#              #
-#    Updated: 2022/11/03 15:11:40 by ttavares         ###   ########.fr        #
+#    Updated: 2022/11/03 17:42:20 by ttavares         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = libft.a
 
 OBJS = $(SRCS:.c=.o)
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 

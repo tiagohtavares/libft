@@ -6,20 +6,21 @@
 /*   By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:36:21 by ttavares          #+#    #+#             */
-/*   Updated: 2022/11/03 15:16:01 by ttavares         ###   ########.fr       */
+/*   Updated: 2022/11/03 15:59:24 by ttavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 #include <strings.h>
+#include <string.h>
 
 int	main(void)
 {
 	char str[50] = "GeeksForGeeks is for programming geeks.";
 	char str1[15] = "0123456789";
 	const char src2[50] = "http://www.tutorialspoint.com";
-	char dest[50] = "Heloooo!!";
+	char dest[50] = "0123456789";
 	ft_memset(str, '.', 32*sizeof(char));
 	ft_bzero(str1,5);
 	char str2[15] = "0123456789";
@@ -58,6 +59,7 @@ int	main(void)
 	}
 	printf("\n");
 	printf("Before memcpy dest = %s\n", dest);
-	ft_memcpy(dest, src2, ft_strlen(src2)+1);
+	ft_memcpy(dest, src2, 5);
 	printf("After memcpy dest = %s\n", dest);
+	printf("memcpy null test = %p \n", ft_memcpy(NULL,NULL,5));
 }
