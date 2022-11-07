@@ -6,34 +6,45 @@
 #    By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 11:13:01 by ttavares          #+#    #+#              #
-#    Updated: 2022/11/03 17:42:20 by ttavares         ###   ########.fr        #
+#    Updated: 2022/11/07 17:11:30 by ttavares         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_strlen.c ft_toupper.c ft_tolower.c ft_isalpha.c ft_isdigit.c \
-		ft_isalnum.c ft_isascii.c ft_isprint.c ft_memset.c ft_bzero.c \
-		ft_memcpy.c
+SRCS	=	ft_strlen.c ft_toupper.c ft_tolower.c ft_isalpha.c ft_isdigit.c \
+			ft_isalnum.c ft_isascii.c ft_isprint.c ft_memset.c ft_bzero.c \
+			ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_strchr.c
 
-NAME = libft.a
+OBJS	=	$(SRCS:.c=.o)
 
-OBJS = $(SRCS:.c=.o)
+BONUS	=
 
-CC = cc
+BONUS_OBJS	=	$(BONUS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+CC	= cc
+RM	= rm -f
+CFLAGS	= -Wall -Wextra -Werror -I.
 
-all = $(NAME)
+NAME	= libft.a
 
-$(NAME) : $(OBJS)
+all:	$(NAME)
+
+$(NAME):	$(OBJS)
 	ar rcs $(NAME) $(OBJS)
 	$(CC) $(CFLAGS) -o test.o main.c $(NAME)
 
 clean:
-	rm -f *.o
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:	clean
+	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re:	fclean $(NAME)
 
-.PHONY: all clean fclean re
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
+
+bonus:	$(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+.PHONY:	all clean fclean re bonus

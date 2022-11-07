@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 11:59:52 by ttavares          #+#    #+#             */
+/*   Created: 2022/11/07 15:29:54 by ttavares          #+#    #+#             */
 /*   Updated: 2022/11/07 16:57:33 by ttavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+size_t	ft_strlcat(char*restrict dst, const char*restrict src, size_t dstsize)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	size_t	i;
+	size_t	c;
+	size_t	destlen;
+	size_t	srclen;
+
+	i = 0;
+	c = 0;
+	destlen = ft_strlen(dst);
+	srclen = ft_strlen(src);
+	if (dstsize == 0 || dstsize <= destlen)
+		return (dstsize + srclen);
+	while (dst[i] != '\0')
+	{
+		i++;
+	}
+	while (src[c] != '\0' && c < dstsize -1 - destlen)
+	{
+		dst[i] = src[c];
+		i++;
+		c++;
+	}
+	dst[i] = '\0';
+	return (destlen + srclen);
 }

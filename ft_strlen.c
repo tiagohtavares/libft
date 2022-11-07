@@ -6,13 +6,13 @@
 /*   By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:36:11 by ttavares          #+#    #+#             */
-/*   Updated: 2022/11/03 15:13:58 by ttavares         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:56:31 by ttavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
