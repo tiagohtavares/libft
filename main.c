@@ -14,6 +14,7 @@
 #include "libft.h"
 #include <strings.h>
 #include <string.h>
+#include <bsd/string.h>
 
 int	main(void)
 {
@@ -23,8 +24,8 @@ int	main(void)
 	char	testmemset[] = "0123456789";
 	char	teststrlcpy[] = "Hello there, Venus";
 	char	teststrlcpybuffer[19];
-	char	teststrlcat[64] = "This is ";
-	char	teststrlcat1[] = "a potentially long string";
+	char	teststrlcat[9] = "This is ";
+	char	teststrlcat1[26] = "a potentially long string";
 	char	teststrchr[] = "0123456789";
 
 
@@ -95,9 +96,11 @@ int	main(void)
 
 	printf("	ft_strlen ASD        -> %zu \n", ft_strlen("ASD"));
     printf("	Copied '%s' into '%s', length %zu\n", teststrlcpy, teststrlcpybuffer, ft_strlcpy(teststrlcpybuffer,teststrlcpy,10));
-	printf("	Value Returned %zu \n", ft_strlcat(teststrlcat, teststrlcat1,34));
+	printf("	Value Returned %lu \n", ft_strlcat(((void*)0), teststrlcat1, 0));
 	printf("	String returned:  %s \n", teststrlcat);
-	printf("	Searched for 3 in %s and got %s \n", teststrchr, ft_strchr(teststrchr,'\0	'));
+	printf("	Searched for 3 in %s and got %s \n", teststrchr, ft_strchr(teststrchr,'\0'));
+	printf("	Test ft_memchr %p \n", ft_memchr(((void*)0), '\0', 0x20));
+	printf("	Test strnstr %s \n", ft_strnstr(((void*)0), "fake", 5));
 
 	printf("\n");
 	printf("\n");

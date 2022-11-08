@@ -21,10 +21,14 @@ size_t	ft_strlcat(char*restrict dst, const char*restrict src, size_t dstsize)
 
 	i = 0;
 	c = 0;
+	if(!dst && dstsize == 0)
+		return (ft_strlen(src));
 	destlen = ft_strlen(dst);
 	srclen = ft_strlen(src);
 	if (dstsize == 0 || dstsize <= destlen)
 		return (dstsize + srclen);
+	if (!dst)
+		return (srclen);
 	while (dst[i] != '\0')
 	{
 		i++;
