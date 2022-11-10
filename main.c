@@ -6,7 +6,7 @@
 /*   By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:36:21 by ttavares          #+#    #+#             */
-/*   Updated: 2022/11/07 18:08:19 by ttavares         ###   ########.fr       */
+/*   Updated: 2022/11/10 17:31:32 by ttavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,14 +100,23 @@ int	main(void)
 	printf("	String returned:  %s \n", teststrlcat);
 	printf("	Searched for 3 in %s and got %s \n", teststrchr, ft_strchr(teststrchr,'\0'));
 	/*printf("	Test ft_memchr %p \n", ft_memchr(((void*)0), '\0', 0x20));
-	printf("	Test strnstr %s \n", ft_strnstr(((void*)0), "fake", 5)); 
+	printf("	Test strnstr %s \n", ft_strnstr(((void*)0), "fake", 5));
 	printf("	Test ft_toi %d \n",ft_atoi((void*)0));
 	printf("	Test atoi %d \n",ft_atoi((void*)0)); */
 	char *substrtest = "01234";
 	printf("	ft_substr result %s \n" ,ft_substr(substrtest, 2, 1));
-	printf("	returned trimmed string |%s|" , ft_strtrim("012345","012345"));
+	printf("	returned trimmed string |%s| \n" , ft_strtrim("012345","012345"));
 
+	/*char	**split = ft_split(",,f,,ABC,a,,AB,C,,,,,",',');
 
+	int	i = 0;
+	while(split[i] != 0)
+	{
+		printf("Split test %d == %s \n", i, split[i]);
+		i++;
+	}
+	*/
+	printf ("itoa output %s \n",ft_itoa(5354413));
 
 
 	printf("\n");
