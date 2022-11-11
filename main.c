@@ -15,6 +15,18 @@
 #include <strings.h>
 #include <string.h>
 #include <bsd/string.h>
+#include "libft.h"
+#include <fcntl.h>
+
+char	a(unsigned int i, char c)
+{
+	if (i > 3)
+	{
+		if (c >= 'a' && c <= 'z')
+			return (c - 32);
+	}
+	return (c);
+}
 
 int	main(void)
 {
@@ -107,17 +119,13 @@ int	main(void)
 	printf("	ft_substr result %s \n" ,ft_substr(substrtest, 2, 1));
 	printf("	returned trimmed string |%s| \n" , ft_strtrim("012345","012345"));
 
-	/*char	**split = ft_split(",,f,,ABC,a,,AB,C,,,,,",',');
-
-	int	i = 0;
-	while(split[i] != 0)
-	{
-		printf("Split test %d == %s \n", i, split[i]);
-		i++;
-	}
-	*/
-	printf ("itoa output %s \n",ft_itoa(5354413));
-
+	char	**split = ft_split("zabcz", 'z');
+		printf("	ft_split  == |%s| ",split[0]);
+		printf("	splittest == |%s| \n",splitt[0]);
+	printf ("	itoa output %s \n",ft_itoa(5354413));
+	printf ("	strampi test == %s \n", ft_strmapi("abcdefgh", &a));
+	int	file = open("test.txt", O_WRONLY | O_CREAT , 0777);
+	ft_putchar_fd('A', file);
 
 	printf("\n");
 	printf("\n");

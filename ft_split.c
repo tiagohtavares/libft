@@ -14,21 +14,22 @@
 
 static int	ft_wordnbr(const char *s, char c)
 {
-	int	i;
-	int	words;
+	int words;
+	int i;
 
 	words = 0;
 	i = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c && s[i + 1] != c)
+		if (*s != c && i == 0)
+		{
+			i = 1;
 			words++;
-		i++;
+		}
+		else if (*s == c)
+			i = 0;
+		s++;
 	}
-	if (s[i - 1] != c)
-		words++;
 	return (words);
 }
 
@@ -50,7 +51,7 @@ char	**ft_split(char const *s, char c)
 			start = i;
 		else if ((s[i] == c || i == ft_strlen(s)) && start >= 0)
 		{
-			ptr[j] = malloc((i - start) * sizeof(char));
+			ptr[j] = malloc((i - start + 1) * sizeof(char));
 			ft_strlcpy(ptr[j], s + start, i - start + 1);
 			start = -1;
 			j++;
