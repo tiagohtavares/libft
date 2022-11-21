@@ -6,7 +6,7 @@
 /*   By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:36:21 by ttavares          #+#    #+#             */
-/*   Updated: 2022/11/10 17:31:32 by ttavares         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:02:57 by ttavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,13 +119,29 @@ int	main(void)
 	printf("	ft_substr result %s \n" ,ft_substr(substrtest, 2, 1));
 	printf("	returned trimmed string |%s| \n" , ft_strtrim("012345","012345"));
 
-	char	**split = ft_split("zabcz", 'z');
-		printf("	ft_split  == |%s| ",split[0]);
-		printf("	splittest == |%s| \n",splitt[0]);
+	/* char	**split = ft_split("zabcz", 'z');
+		printf("	ft_split  == |%s| \n ",split[0]);
 	printf ("	itoa output %s \n",ft_itoa(5354413));
 	printf ("	strampi test == %s \n", ft_strmapi("abcdefgh", &a));
 	int	file = open("test.txt", O_WRONLY | O_CREAT , 0777);
 	ft_putchar_fd('A', file);
+	*/
+
+
+	t_list * first = ft_lstnew((void*)50);
+	t_list * second = ft_lstnew((void*)100);
+	t_list	**start= &first;
+	ft_lstadd_front(start,second);
+
+	t_list * current = first;
+
+	while (current != 0)
+	{
+		printf("	%d \n ",*(int*)(&current->content));
+		current = current->next;
+	}
+
+
 
 	printf("\n");
 	printf("\n");

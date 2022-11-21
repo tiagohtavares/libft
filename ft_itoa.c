@@ -6,7 +6,7 @@
 /*   By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:51:37 by ttavares          #+#    #+#             */
-/*   Updated: 2022/11/10 17:35:48 by ttavares         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:49:09 by ttavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static int	ft_nbrsize(int n)
 	return (size);
 }
 
-static int ft_nbrflip(int n)
+static int	ft_nbrflip(int n)
 {
 	if (n == -2147483648)
-		{
+	{
 			n++;
 			n *= -1;
-		}
+	}
 	else if (n < 0)
 		n *= -1;
 	return (n);
@@ -50,12 +50,13 @@ static int ft_nbrflip(int n)
 char	*ft_itoa(int n)
 {
 	char	*ptr;
-	int	size;
-	int	nbr;
-	int	i;
+	int		size;
+	int		nbr;
+	int		i;
 
 	size = ft_nbrsize(n);
-	if (!(ptr = (char *)malloc(size + 1)))
+	ptr = (char *)malloc(size + 1);
+	if (!ptr)
 		return (0);
 	nbr = ft_nbrflip(n);
 	i = size - 1;
@@ -67,9 +68,7 @@ char	*ft_itoa(int n)
 		i--;
 	}
 	if (n == -2147483648)
-	{
 		ptr[10] = '8';
-	}
 	if (n == 0)
 		ptr[0] = '0';
 	if (n < 0)

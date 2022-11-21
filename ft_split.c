@@ -6,7 +6,7 @@
 /*   By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:48:00 by ttavares          #+#    #+#             */
-/*   Updated: 2022/11/10 18:06:19 by ttavares         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:16:36 by ttavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_wordnbr(const char *s, char c)
 {
-	int words;
-	int i;
+	int	words;
+	int	i;
 
 	words = 0;
 	i = 0;
@@ -33,15 +33,12 @@ static int	ft_wordnbr(const char *s, char c)
 	return (words);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**ft_getsplit(char const *s, char c, char **ptr)
 {
 	int		start;
-	char	**ptr;
 	size_t	i;
 	size_t	j;
 
-	if (!s || !(ptr = malloc((ft_wordnbr(s, c) + 1) * sizeof(char *))))
-		return (0);
 	i = 0;
 	j = 0;
 	start = -1;
@@ -59,5 +56,18 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	ptr[j] = 0;
+	return (ptr);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**ptr;
+
+	if (!s)
+		return (0);
+	ptr = malloc((ft_wordnbr(s, c) + 1) * sizeof(char *));
+	if (!ptr)
+		return (0);
+	ptr = ft_getsplit(s, c, ptr);
 	return (ptr);
 }
