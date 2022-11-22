@@ -6,7 +6,7 @@
 /*   By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:36:21 by ttavares          #+#    #+#             */
-/*   Updated: 2022/11/21 20:02:57 by ttavares         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:24:23 by ttavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,22 @@
 #include "libft.h"
 #include <fcntl.h>
 
+void			lstdelone_f(void *d) {
+	free(d);
+}
+void *upper_lst(void *content)
+{
+	size_t	i;
+	char	*str;
+
+	str = ft_strdup((char*)content);
+	i = 0;
+	while(str[i]) {
+		str[i] = ft_toupper(str[i]);
+		i++;
+	}
+	return (str);
+}
 char	a(unsigned int i, char c)
 {
 	if (i > 3)
@@ -128,20 +144,29 @@ int	main(void)
 	*/
 
 
-	t_list * first = ft_lstnew((void*)50);
-	t_list * second = ft_lstnew((void*)100);
-	t_list	**start= &first;
-	ft_lstadd_front(start,second);
 
+
+	t_list * first = ft_lstnew(ft_strdup("asd"));
+	t_list * second = ft_lstnew(ft_strdup("bsd"));
+	t_list * third = ft_lstnew(ft_strdup("zxc"));
+	t_list	**start= &first;
+	ft_lstadd_back(start,second);
+	ft_lstadd_back(start,third);
 	t_list * current = first;
+	t_list * copy;
 
 	while (current != 0)
-	{
-		printf("	%d \n ",*(int*)(&current->content));
+	{		printf("	%s \n ",(char*)(current->content));
 		current = current->next;
 	}
 
-
+	copy = ft_lstmap(first, &upper_lst,&lstdelone_f);
+	ft_lstclear(&copy,&free);
+	t_list * current1 = copy;
+	while (current1 != 0)
+	{		printf("	%s \n ",(char*)(current1->content));
+		current1 = current1->next;
+	}
 
 	printf("\n");
 	printf("\n");
