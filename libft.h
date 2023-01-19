@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -56,6 +57,15 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+char	*ft_itoa_unsigned(unsigned int n);
+int	ft_printf(const char *txt, ...);
+int	ft_putchar(char c);
+int	ft_puthex_lower(unsigned int num);
+int	ft_puthex_upper(unsigned int num);
+int	ft_putnbr(int n);
+int	ft_putnbr_unsigned(unsigned int n);
+int	ft_putptr(unsigned long long num);
+int	ft_putstr(char *str);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
