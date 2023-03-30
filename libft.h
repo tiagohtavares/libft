@@ -6,13 +6,18 @@
 /*   By: ttavares <ttavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:36:52 by ttavares          #+#    #+#             */
-/*   Updated: 2022/11/22 12:26:08 by ttavares         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:16:24 by ttavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
@@ -23,6 +28,8 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+int		find_linebreaker(char *str);
+char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
@@ -47,7 +54,7 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nitems, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
@@ -58,14 +65,14 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_itoa_unsigned(unsigned int n);
-int	ft_printf(const char *txt, ...);
-int	ft_putchar(char c);
-int	ft_puthex_lower(unsigned int num);
-int	ft_puthex_upper(unsigned int num);
-int	ft_putnbr(int n);
-int	ft_putnbr_unsigned(unsigned int n);
-int	ft_putptr(unsigned long long num);
-int	ft_putstr(char *str);
+int		ft_printf(const char *txt, ...);
+int		ft_putchar(char c);
+int		ft_puthex_lower(unsigned int num);
+int		ft_puthex_upper(unsigned int num);
+int		ft_putnbr(int n);
+int		ft_putnbr_unsigned(unsigned int n);
+int		ft_putptr(unsigned long long num);
+int		ft_putstr(char *str);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
