@@ -23,5 +23,3 @@ To use this library cd into libft folder and use "make all" to compile the libra
 Removed *_bonus files for convenience in other projects.
 
 Added ft_printf.
-
-Added get_next_line.
